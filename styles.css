@@ -1,0 +1,208 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;  /* Fallback color if image fails to load */
+    background-image: url('background.jpg');  /* Path to your image */
+    background-size: cover;  /* Scales image to cover the whole area */
+    background-position: center;  /* Centers the image */
+    background-repeat: no-repeat;  /* Prevents tiling */
+    background-attachment: fixed;  /* Keeps image fixed during scroll (optional; remove for parallax scroll) */
+    min-height: 100vh;  /* Ensures full viewport height */
+    font-size: 1.4rem;  /* Base text ~22px; adjust for larger/smaller */
+    text-align: center;  /* Centers all text inside <body> */
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);  /* Subtle dark tint */
+    z-index: -1;
+}
+
+/* Header */
+header {
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    padding: 2rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 1rem;
+    font-size: 1.1rem;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Sections */
+section {
+    padding: 1rem;  /* Tight padding for compact layout */
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+section h2 {
+    font-size: 1.6rem;  /* Size for visible headings if used */
+    margin-bottom: 1rem;
+    color: #222;
+    font-weight: 500;  /* Medium weight for subtle emphasis */
+}
+
+.bigger-text {
+    font-size: 1.5rem;  /* Slightly larger than base for key paragraphs */
+}
+
+.smaller-text {
+    font-size: 1.2rem;  /* Slightly smaller than base for asides */
+}
+
+#apology {
+    margin-top: 0;  /* No extra space above apology—snugs to previous section */
+}
+
+/* Gallery (unused but ready if needed) */
+.gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.gallery-container img {
+    max-width: 100%;
+    width: 200px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Streaming Links */
+.streaming-links {
+    display: flex;
+    flex-direction: column;  /* Stack rows vertically */
+    gap: 0.5rem;  /* Space between rows */
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.5em; /* Adds space above the links; tweak to 1.5em or 20px if you want more */
+}
+
+.link-row {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    width: 100%;
+    max-width: 600px;  /* Keeps rows from stretching too wide on desktop */
+}
+
+.link-row a {
+    flex: 1;  /* Grow to fill the row equally */
+    min-width: 120px;  /* Prevents squishing on tiny screens */
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #001f3f;  /* Dark navy blue */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.link-row a:hover {
+    background-color: #000f1a;  /* Even darker for hover */
+}
+
+/* Contact */
+#contact p {
+    margin-bottom: 0.5rem;
+}
+
+#contact {
+    margin-top: -1.0rem;  /* Reduces space above contact section */
+}
+
+#contact a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;  /* Bolds the email address only */
+}
+
+#contact a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #222;
+    color: #fff;
+    margin-top: 2rem;
+}
+
+/* Screen Reader Only (for invisible headings) */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    body {
+        background-attachment: scroll;  /* Smooth scroll on small screens */
+    }
+
+    nav a {
+        display: block;
+        margin: 0.5rem 0;
+    }
+
+    section {
+        padding: 1rem;
+    }
+
+    .gallery-container img {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .link-row {
+        flex-direction: column;  /* Stack links vertically on very small screens if needed */
+        gap: 0.5rem;
+    }
+
+    .link-row a {
+        min-width: auto;  /* Full width on tiny screens */
+    }
+}
